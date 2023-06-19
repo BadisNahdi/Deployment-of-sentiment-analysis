@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .result {
+            margin-top: 20px;
+        }
+        
+        h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .positive {
+            color: green;
+            background-color: #f8f8f8;
+        }
+        
+        .negative {
+            color: red;
+            background-color: #f8f8f8;
+        }
+        
+        .cannot-tell {
+            color: gray;
+            background-color: #f8f8f8;
+        }
+        
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #4c8dff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #3366ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <p style="font-size: 16px; font-weight: bold;">Result for comment</p>
+    </div>
+    <div class="result center">
+        {% if prediction > 1 %}
+        <h2 class="positive">Positive</h2>
+        <h2 class="positive">Polarity :  {{prediction}}</h2>
+        {% elif prediction < 0 %}
+        <h2 class="negative">Negative</h2>
+        <h2 class="negative">Polarity :  {{prediction}}</h2>
+        {% else %}
+        <h2 class="cannot-tell">Cannot Tell</h2>
+        {% endif %}
+    </div>
+    <div class="center">
+        <button onclick="history.back()">
+            Go Back
+        </button>
+    </div>
+</body>
+</html>
