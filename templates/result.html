@@ -65,7 +65,7 @@
         <p style="font-size: 16px; font-weight: bold;">Result for comment</p>
     </div>
     <div class="result center">
-        {% if prediction > 1 %}
+        {% if prediction > 0 %}
         <h2 class="positive">Positive</h2>
         <h2 class="positive">Polarity :  {{prediction}}</h2>
         {% elif prediction < 0 %}
